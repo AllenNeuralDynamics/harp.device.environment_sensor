@@ -342,6 +342,10 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 5faf68af-fc49-4d62-a2fd-4b1ac74aa7ef)
   )
+  (text "BME688 in SPI mode." (at 103.505 106.045 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 7b0604ae-dd6c-454a-8fb5-045630250323)
+  )
 
   (symbol (lib_id "power:+3.3V") (at 90.17 175.895 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
