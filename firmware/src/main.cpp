@@ -243,6 +243,9 @@ int main()
     printf("Hello, from an RP2040!\r\n");
 #endif
     stdio_init_all();
+    // Wait for serial port to open before continuing.
+    while (!stdio_usb_connected());
+    sleep_ms(1000);
     printf("Hello, from an RP2040!\r\n");
     set_led_state(true);
     gpio_init(LED_PIN);

@@ -11,6 +11,9 @@ class MySPI {
       uint8_t spi_sck_pin, uint8_t cs_pin, bool init_spi_hardware = true);
 
   bool read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len);
+/**
+ * \brief write a sequence of `len` bytes starting from `reg_addr`.
+ */
   bool write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len);
 
  private:
