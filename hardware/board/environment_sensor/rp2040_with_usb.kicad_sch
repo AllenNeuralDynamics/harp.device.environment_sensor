@@ -11687,6 +11687,33 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Richtek USA Inc."
+			(at 131.445 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Number" "RT6150B-33GQW"
+			(at 131.445 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://www.digikey.com/en/products/detail/richtek-usa-inc/RT6150B-33GQW/6676709"
+			(at 131.445 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "14b91971-e166-4237-ae6b-abf4ae996aad")
 		)
@@ -14402,7 +14429,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
 			(at 115.57 36.83 0)
 			(effects
 				(font
@@ -14420,7 +14447,7 @@
 				(hide yes)
 			)
 		)
-		(property "Link" ""
+		(property "Link" "https://www.digikey.com/en/products/detail/yageo/RC0402FR-07100KL/726526"
 			(at 115.57 36.83 90)
 			(effects
 				(font
@@ -14429,7 +14456,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Yageo"
 			(at 115.57 36.83 0)
 			(effects
 				(font
@@ -14438,16 +14465,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Number" ""
-			(at 115.57 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Notes" ""
+		(property "Manufacturer Number" "RC0402FR-07100KL"
 			(at 115.57 36.83 0)
 			(effects
 				(font
@@ -15757,7 +15775,7 @@
 				)
 			)
 		)
-		(property "Value" "L"
+		(property "Value" "2.2uH"
 			(at 146.05 35.56 90)
 			(effects
 				(font
@@ -15819,6 +15837,15 @@
 				(hide yes)
 			)
 		)
+		(property "DC Resistance" "1.5Ohm"
+			(at 146.05 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "72b84a45-a74b-4714-be92-f1f481bede8a")
 		)
@@ -15870,7 +15897,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
 			(at 115.57 34.29 0)
 			(effects
 				(font
@@ -15888,7 +15915,7 @@
 				(hide yes)
 			)
 		)
-		(property "Link" ""
+		(property "Link" "https://www.digikey.com/en/products/detail/yageo/RC0402FR-07100KL/726526"
 			(at 115.57 34.29 90)
 			(effects
 				(font
@@ -15897,7 +15924,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Yageo"
 			(at 115.57 34.29 0)
 			(effects
 				(font
@@ -15906,16 +15933,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Number" ""
-			(at 115.57 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Notes" ""
+		(property "Manufacturer Number" "RC0402FR-07100KL"
 			(at 115.57 34.29 0)
 			(effects
 				(font

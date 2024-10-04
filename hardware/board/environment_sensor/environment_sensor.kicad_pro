@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.85,
+          "drill": 0.35,
           "height": 0.6,
-          "width": 0.85
+          "width": 0.6
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -58,16 +58,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        "copper_edge_clearance|141210000|103650000|99c6aa3b-f434-44a9-bd09-bf913698b288|370a1867-1a22-416a-8153-6e3239f13498",
-        "copper_edge_clearance|141210000|103650000|99c6aa3b-f434-44a9-bd09-bf913698b288|a3c0e6de-8aa6-45cc-ad68-aca629829851",
-        "copper_edge_clearance|141475000|103650000|99c6aa3b-f434-44a9-bd09-bf913698b288|5f9f0b25-f404-4ae8-812f-5c72b62ce22b",
-        "copper_edge_clearance|141475000|103650000|99c6aa3b-f434-44a9-bd09-bf913698b288|95b6885f-7543-4910-bcf6-9c18feaff74d",
-        "copper_edge_clearance|142920000|104025000|99c6aa3b-f434-44a9-bd09-bf913698b288|8951d8a5-e520-40e2-995a-0a77bf52c2dc",
-        "lib_footprint_mismatch|134883375|100867500|0b6d7565-8a55-4a31-8977-2253634c9e85|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_mismatch|138600000|106881625|f5a92b1c-632b-4b8b-99c7-877a288e91b8|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_mismatch|152000000|102486625|1dd186e5-7184-4f5b-8e5b-788d1755b680|00000000-0000-0000-0000-000000000000"
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -573,11 +564,83 @@
           "label": "DNP",
           "name": "${DNP}",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Alternate",
+          "name": "Alternate",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Link",
+          "name": "Link",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer",
+          "name": "Manufacturer",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer Number",
+          "name": "Manufacturer Number",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Notes",
+          "name": "Notes",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PCBWay Link",
+          "name": "PCBWay Link",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Rated Voltage",
+          "name": "Rated Voltage",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Temperature Coefficient",
+          "name": "Temperature Coefficient",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Tolerance",
+          "name": "Tolerance",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Vendor Number",
+          "name": "Vendor Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
-      "name": "Grouped By Value",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
