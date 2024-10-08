@@ -7,8 +7,6 @@
 
 // #define DEBUG /////////
 
-// #define DEBUG_SPI
-
 #define BME688_CS_PIN (20)
 #define BME688_POCI_PIN (16)
 #define BME688_PICO_PIN (19)

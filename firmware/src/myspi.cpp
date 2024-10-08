@@ -36,17 +36,16 @@ bool MySPI::read(uint8_t reg_addr, uint8_t* reg_data, uint32_t len) {
   gpio_put(cs_pin_, 0);
   asm volatile("nop");
 
-  // printf("reading addr %x into %x\r\n",reg_addr,reg_data);
-
   spi_write_blocking(spi_inst_, &reg_addr,1);
-  // sleep_ms(10);
   spi_read_blocking(spi_inst_,0,reg_data,len);
 
 
   asm volatile("nop");
   gpio_put(cs_pin_, 1);
   asm volatile("nop");
-  printf("read %d bytes %x starting at addr %x\r\n", len, *reg_data, reg_addr);
+  #ifdef DEBUG_SPI
+    printf("read %d bytes %x starting at addr %x\r\n", len, *reg_data, reg_addr);
+  #endif
   return true;
 };
 
@@ -68,6 +67,8 @@ bool MySPI::write(uint8_t reg_addr, const uint8_t* reg_data, uint32_t len) {
   asm volatile("nop");
   gpio_put(cs_pin_, 1);
   asm volatile("nop");
-  printf("wrote %d bytes %x starting at addr %x\r\n", len, *reg_data, reg_addr);
+  #ifdef DEBUG_SPI
+    printf("wrote %d bytes %x starting at addr %x\r\n", len, *reg_data, reg_addr);
+  #endif
   return true;
 };

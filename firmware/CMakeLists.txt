@@ -12,7 +12,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Compile for profiling/debugging/etc. Default: none enabled.
 
-set(DEBUG True)    ############### Controls whether usb is harp or printf
+# set(DEBUG True)    ############### Controls whether usb is harp or printf
+set(DEBUG False)
 
 # add_definitions(-DDEBUG)
 # set(DEBUG True)
@@ -24,7 +25,7 @@ set(DEBUG True)    ############### Controls whether usb is harp or printf
 pico_sdk_init()
 
 if(NOT DEBUG)
-    # Add Harp Core as separate library.
+    # # Add Harp Core as separate library.
     add_subdirectory(lib/harp.core.rp2040/firmware)
 endif()
 
@@ -44,6 +45,9 @@ add_library(Adafruit_BME680_rpi
 add_library(myspi
     src/myspi.cpp
 )
+add_library(core1_sensor
+    src/core1_sensor.cpp
+)
 
 # Specify where to look for header files if they're not all in the same place.
 #target_include_directories(${PROJECT_NAME} PUBLIC inc)
@@ -53,13 +57,14 @@ include_directories(inc)
 # Link libraries to the targets that need them.
 target_link_libraries(myspi hardware_spi pico_stdlib)
 target_link_libraries(Adafruit_BME680_rpi hardware_spi pico_stdlib bme68x myspi)
-target_link_libraries(${PROJECT_NAME} Adafruit_BME680_rpi pico_stdlib
-                    #   pico_multicore harp_sync harp_c_app
-)
+target_link_libraries(${PROJECT_NAME} pico_stdlib)
 # target_link_libraries(${PROJECT_NAME} bme688 pico_stdlib)
 
 if(NOT DEBUG)
-    target_link_libraries(${PROJECT_NAME} pico_multicore harp_sync harp_c_app)
+    target_link_libraries(core1_sensor Adafruit_BME680_rpi)
+    target_link_libraries(${PROJECT_NAME} pico_stdlib pico_multicore harp_sync harp_c_app core1_sensor)
+else()
+    target_link_libraries(${PROJECT_NAME} Adafruit_BME680)
 endif()
 
 
