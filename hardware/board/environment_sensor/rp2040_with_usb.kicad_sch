@@ -7933,7 +7933,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_3.5mm_CUI_SJ-3523-SMT_Horizontal"
+		(property "Footprint" "Connector_Audio:Jack_3.5mm_CUI_SJ-3524-SMT_Horizontal"
 			(at 25.4 117.475 0)
 			(effects
 				(font
@@ -7942,7 +7942,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.cuidevices.com/product/resource/sj-352x-smt.pdf"
+		(property "Datasheet" "https://www.cuhttps://www.sameskydevices.com/product/resource/sj-352x-smt.pdfidevices.com/product/resource/sj-352x-smt.pdf"
 			(at 25.4 117.475 0)
 			(effects
 				(font
@@ -7960,7 +7960,7 @@
 				(hide yes)
 			)
 		)
-		(property "Link" "https://www.digikey.com/en/products/detail/cui-devices/SJ-3524-SMT-TR-BE/2295987"
+		(property "Link" "https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/SJ-3524-SMT-TR/281298"
 			(at 25.4 117.475 0)
 			(effects
 				(font
@@ -7969,7 +7969,7 @@
 				(hide yes)
 			)
 		)
-		(property "PCBWay Link" "https://www.pcbway.com/components/detail/SJ3523SMTTR/473228/"
+		(property "Manufacturer Number" "SJ-3524-SMT-TR"
 			(at 25.4 117.475 0)
 			(effects
 				(font
@@ -7978,7 +7978,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Number" "SJ-3523-SMT-TR"
+		(property "Alternate" "SJ-3524-SMT-TR-GR"
 			(at 25.4 117.475 0)
 			(effects
 				(font
@@ -7987,7 +7987,7 @@
 				(hide yes)
 			)
 		)
-		(property "Alternate" ""
+		(property "Manufacturer" "Same Sky"
 			(at 25.4 117.475 0)
 			(effects
 				(font
