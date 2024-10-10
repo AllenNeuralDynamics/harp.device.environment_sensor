@@ -20,7 +20,7 @@
  * BSD license, all text here must be included in any redistribution.
  *
  */
-☻
+
 #ifndef __BME680_H__
 #define __BME680_H__
 
@@ -149,25 +149,3 @@ public:
 };
 
 #endif
-
-
-// unsigned long millis()
-// // {
-// //   return to_ms_since_boot(get_absolute_time());
-// // }
-
-// void delay(uint32_t ms)
-// // {
-// //   sleep_ms(ms);
-// // }
-
-// static int8_t spi_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len,
-//                        void *interface);
-// static int8_t spi_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len,
-//                         void *interface);
-// static void delay_usec(uint32_t us, void *intf_ptr);
-
-
-// unsigned long millis();
-
-// void delay(uint32_t ms);
