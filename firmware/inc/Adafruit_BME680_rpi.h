@@ -20,12 +20,12 @@
  * BSD license, all text here must be included in any redistribution.
  *
  */
-
+☻
 #ifndef __BME680_H__
 #define __BME680_H__
 
 // #include "Arduino.h"
-#include <hardware/spi.h>
+// #include <hardware/spi.h>
 #include <math.h>
 #include <pico/time.h>
 #include <pico/stdlib.h>

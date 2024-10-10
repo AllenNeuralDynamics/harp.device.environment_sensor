@@ -1,4 +1,12 @@
 cmake_minimum_required(VERSION 3.13)
+find_package(Git REQUIRED)
+execute_process(COMMAND "${GIT_EXECUTABLE}" rev-parse --short HEAD OUTPUT_VARIABLE COMMIT_ID OUTPUT_STRIP_TRAILING_WHITESPACE)
+message(STATUS "Computed Git Hash: ${COMMIT_ID}")
+add_definitions(-DGIT_HASH="${COMMIT_ID}") # Usable in source code.
+
+# Specify USB Manufacturer and Product descriptions.
+add_definitions(-DUSBD_MANUFACTURER="Allen Institute")
+add_definitions(-DUSBD_PRODUCT="Environment Sensor")
 
 include(${PICO_SDK_PATH}/pico_sdk_init.cmake)
 
@@ -29,8 +37,6 @@ if(NOT DEBUG)
     add_subdirectory(lib/harp.core.rp2040/firmware)
 endif()
 
-# include_directories(lib/Adafruit_BME680)
-# include_directories(lib/Adafruit_BusIO)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
@@ -49,6 +55,30 @@ add_library(core1_sensor
     src/core1_sensor.cpp
 )
 
+########## submoduling stuff
+# include_directories(lib/Adafruit_BME680)
+# include_directories(lib/Adafruit_BusIO)
+# include_directories(lib/Adafruit_Sensor)
+# # include_directories(lib/RasPiArduino/cores/piduino)
+# # include_directories(lib/arduino-pico/cores/rp2040)
+# include_directories(lib/arduino-pico-compat)
+# # include_directories(lib)
+
+# add_library(Adafruit_BME680
+#     lib/Adafruit_BME680/Adafruit_BME680.cpp
+# )
+
+# target_link_libraries(Adafruit_BME680 arduino-pico-compat)
+
+add_subdirectory(lib/pico-arduino-compat/libs/adafruit-bme680-library)
+
+# target_link_libraries(boom
+#   pico_stdlib
+#   pac-adafruit-bme680-library
+# )
+
+##############
+
 # Specify where to look for header files if they're not all in the same place.
 #target_include_directories(${PROJECT_NAME} PUBLIC inc)
 # Specify where to look for header files if they're all in one place.
@@ -56,12 +86,13 @@ include_directories(inc)
 
 # Link libraries to the targets that need them.
 target_link_libraries(myspi hardware_spi pico_stdlib)
-target_link_libraries(Adafruit_BME680_rpi hardware_spi pico_stdlib bme68x myspi)
-target_link_libraries(${PROJECT_NAME} pico_stdlib)
+target_link_libraries(Adafruit_BME680_rpi pico_stdlib bme68x myspi)
+# target_link_libraries(${PROJECT_NAME} pico_stdlib)
 # target_link_libraries(${PROJECT_NAME} bme688 pico_stdlib)
 
 if(NOT DEBUG)
     target_link_libraries(core1_sensor Adafruit_BME680_rpi)
+    # target_link_libraries(core1_sensor pac-adafruit-bme680-library pico_multicore hardware_spi)
     target_link_libraries(${PROJECT_NAME} pico_stdlib pico_multicore harp_sync harp_c_app core1_sensor)
 else()
     target_link_libraries(${PROJECT_NAME} Adafruit_BME680)

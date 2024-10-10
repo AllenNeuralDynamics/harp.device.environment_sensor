@@ -1,11 +1,15 @@
-#include <core1_sensor.h>
+#include "core1_sensor.h"
 
 Adafruit_BME680 bme688(spi0,BME688_PICO_PIN,BME688_POCI_PIN,BME688_SCK_PIN,BME688_CS_PIN,true);
+// Adafruit_BME680 bme688(BME688_CS_PIN,BME688_PICO_PIN,BME688_POCI_PIN,BME688_SCK_PIN);
+
+uint32_t cmd_word;
 
 bool core1_setup() {
   bool rslt = bme688.begin(0,true);
 
   queue_init(&sensor_queue,sizeof(sensor_data_t),32);
+  // queue_init(&cmd_queue,sizeof(cmd_word),8);
 
   return rslt;
 }
@@ -13,6 +17,13 @@ bool core1_setup() {
 void core1_main()
 {
   while(true) {
+    // Receive command
+    if (queue_try_remove(&cmd_queue,&cmd_word)) {
+      if (cmd_word) {
+        bme68x_soft_reset(&bme688.gas_sensor);
+      }
+    }
+
     bme688.performReading(); // reading takes ~ 400 ms
     
     sensor_data_t data;
