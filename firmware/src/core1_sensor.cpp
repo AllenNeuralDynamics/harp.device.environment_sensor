@@ -9,7 +9,7 @@ bool core1_setup() {
   bool rslt = bme688.begin(0,true);
 
   queue_init(&sensor_queue,sizeof(sensor_data_t),32);
-  // queue_init(&cmd_queue,sizeof(cmd_word),8);
+  queue_init(&cmd_queue,sizeof(cmd_word),8);
 
   return rslt;
 }
@@ -19,7 +19,7 @@ void core1_main()
   while(true) {
     // Receive command
     if (queue_try_remove(&cmd_queue,&cmd_word)) {
-      if (cmd_word) {
+      if (bool(cmd_word)) {
         bme68x_soft_reset(&bme688.gas_sensor);
       }
     }

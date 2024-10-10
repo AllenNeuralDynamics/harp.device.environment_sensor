@@ -84,6 +84,8 @@ void app_reset()
     app_regs.pressure_temp_humidity[1] = 0;
     app_regs.pressure_temp_humidity[2] = 0;
 
+    app_regs.enable_sensor_dispatch_events = 1;
+
     uint8_t reset = 0xff;
     queue_add_blocking(&cmd_queue,&reset);
 }
@@ -92,7 +94,6 @@ void update_app_state()
 {
     // Get data from sensor-reading loop via queue and set registers
     if (!queue_is_empty(&sensor_queue)){
-        // queue_remove_blocking(&sensor_queue, &app_regs);
         sensor_data_t data;
         queue_remove_blocking(&sensor_queue, &data);
 
@@ -104,17 +105,8 @@ void update_app_state()
         app_regs.pressure_temp_humidity[2] = data.humidity_units;
         
         // Send an event for the aggregate register
-        const RegSpecs& reg_specs = app_reg_specs[3]; // aggregate register
-        if (!HarpCore::is_muted() && app_regs.enable_sensor_dispatch_events)
+        if (!HarpCore::is_muted() && bool(app_regs.enable_sensor_dispatch_events))
             HarpCApp::send_harp_reply(EVENT, APP_REG_START_ADDRESS + 3);
-
-        // // send an event for all registers
-        // for (int i=0; i < reg_count; i++) {
-        //     const RegSpecs& reg_specs = app_reg_specs[i]; // aggregate register
-        //     if (!HarpCore::is_muted())
-        //         HarpCApp::send_harp_reply(EVENT, APP_REG_START_ADDRESS, reg_specs.base_ptr,
-        //                                 reg_specs.num_bytes, reg_specs.payload_type);
-        // }
 
 
     }
@@ -149,6 +141,8 @@ int main()
     bool core1_rslt = core1_setup();
     multicore_launch_core1(core1_main);
 
+    // enable events by default
+    app_regs.enable_sensor_dispatch_events = 1;
 
     while(true) {
 
